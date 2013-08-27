@@ -1,0 +1,57 @@
+<fieldset>
+    <legend>
+        <div class="row-fluid">
+            <div class="span6">
+                <h3><?= $this->row['event'] ?></h3>
+            </div>
+            <div class="span6">
+                <a class="pull-right btn" href="<?= $this->url(array('module' => 'admin', 'controller' => 'event', 'action' => 'index'), 'default', true) ?>">Back</a><span class="pull-right">&nbsp;</span>
+                <!--<a class="pull-right btn btn-warning" href="<?= $this->url(array('module' => 'admin', 'controller' => 'event', 'action' => 'edit', 'id' => $this->row['id']), 'default', true) ?>">Edit</a><span class="pull-right">&nbsp;</span>-->
+                <!--<a class="pull-right btn btn-primary" href="<?= $this->url(array('module' => 'admin', 'controller' => 'source', 'action' => 'add', 'eid' => $this->row['id']), 'default', true) ?>">Add Source</a><span class="pull-right">&nbsp;</span>-->
+            </div>
+        </div>        
+    </legend>
+    <div class="row-fluid">
+        <div class="span6">
+            <dl>
+                <dt>Sport</dt><dd><?= $this->row['sport'] ?></dd>
+                <dt>League</dt><dd><?= $this->row['league'] ?></dd>
+                <dt>Date and Time</dt><dd><?= $this->row['dt'] ?></dd>
+                <dt># Sources</dt><dd>0</dd>
+            </dl>
+        </div>
+        <div class="span6"><?= $this->form ?></div>
+    </div>        
+</fieldset>
+
+
+<? if (empty($this->sources)): ?>
+    <p class="noresults alert alert-info text-center">We don't have any source yet :(</p>
+<? else: ?>
+    <table class="table table-condensed table-bordered" style="width: 75%; margin: 0px auto;">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <? foreach ($this->sources as $row): ?>
+                <tr>
+                    <td><?= $this->escape($row['code']) ?></td>
+                    <td>
+                        <? $base = array('module' => 'admin', 'controller' => 'event', 'id' => $this->eid, 'sid' => $row['id'], 'action' => 'view'); ?>
+                        <? $url = $this->url($base + array('op'=>'del-source')); ?>
+                        <a onclick="return confirm('Are you sure?');" class="btn btn-danger btn-mini" href="<?= $url ?>"><i class="icon-trash icon-white"></i></a>
+                        <a class="btn btn-warning btn-mini" href="#"><i class="icon-arrow-up icon-white"></i></a>
+                        <a class="btn btn-warning btn-mini" href="#"><i class="icon-arrow-down icon-white"></i></a>
+                    </td>
+                </tr>
+            <? endforeach; ?>
+        </tbody>
+    </table>
+<? endif; ?>
+
+<style>
+    #eid-label{line-height: 0px;}
+</style>

@@ -1,0 +1,9 @@
+<div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header">Menu</li>
+        <li<?=($this->params['controller']=='index')?' class="active"':''?>><a href="<?=$this->url(array(),'admin',true)?>">Home</a></li>
+        <li<?=($this->params['controller']=='event')?' class="active"':''?>><a href="<?=$this->url(array('module'=>'admin','controller'=>'event','action'=>'index'),'default',true)?>">Events</a></li>
+        <li class="nav-header">Others</li>
+        <li><a href="<?=$this->url(array(),'logout',true)?>">Logout</a></li>
+    </ul>
+</div><!--/.well -->

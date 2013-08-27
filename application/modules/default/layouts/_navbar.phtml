@@ -1,0 +1,29 @@
+<?
+$p=$this->params;
+$list=array(
+    'home'=>array('title'=>'Home', 'action'=>'index'),
+    'contact-us'=>array('title'=>'Contact Us', 'action'=>'contact-us'),
+    'pp'=>array('title'=>'Privacy Policy', 'action'=>'privacy-policy'),
+    'tou'=>array('title'=>'Terms of Use', 'action'=>'terms-of-use'),
+);
+?>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="<?=$this->url(array(),'home',true)?>"><?=$this->appTitle?></a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <? foreach($list as $k => $v): ?>
+                        <li<?=($p['module']=='default'&&$p['controller']=='index'&&$p['action']==$v['action'])?' class="active"':''?>><a href="<?=$this->url(array(),$k,true)?>"><?=$v['title']?></a></li>
+                    <? endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>        
+
