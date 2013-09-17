@@ -21,13 +21,13 @@
     <tbody>
         <? foreach ($this->events as $item): $item = (array) $item; ?>
             <tr>
-                <td><?= $item['id'] ?></td>
+                <td><?= $item['ide'] ?></td>
                 <td><?= $item['sport'] ?></td>
                 <td><?= $item['league'] ?></td>
                 <td><?= $item['event'] ?></td>
                 <td><?= $item['dt'] ?></td>
                 <td>
-                    <? $base = array('module'=>'admin','controller'=>'event','id'=>$item['id']); ?>
+                    <? $base = array('module'=>'admin','controller'=>'event','id'=>$item['ide']); ?>
                     <? $url = $this->url($base+array('action'=>'view')); ?>
                     <a class="btn btn-primary" href="<?=$url?>">View</a>
                 </td>

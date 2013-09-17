@@ -5,24 +5,39 @@ class Application_Model_Event extends Zend_Db_Table_Abstract {
     protected $_name = 'event';
     
     public function save($values){
-        $row = array(
-            'id_league' => $values['league'],
-            'name' => $values['name'],
-            'dt' => $this->dateTimeAndTimeZone2dateTimeUTC($values['dt'],$values['timezone']),
-        );
-        $this->insert($row);
+        
+        $eventNames = explode(PHP_EOL, trim($values['name']));
+        
+        foreach ($eventNames as $eventName) {
+            if(strlen($eventName)>=2){
+                $row = array(
+                    'id_league' => $values['league'],
+                    'name' => $eventName,
+                    'dt' => $this->dateTimeAndTimeZone2dateTimeUTC($values['dt'],$values['timezone']),
+                );
+                $this->insert($row);
+            }
+        }
+        
     }
     
-    private function getSqlList(){
-        return $this->getAdapter()->select()
-                ->from(array('e'=>'event'),array( 'id', 'event'=>'name','dt'))
-                ->join(array('l'=>'league'), 'l.id=e.id_league',array('league'=>'name'))
-                ->join(array('s'=>'sport'), 's.id=l.id_sport',array('sport'=>'name'))
+    private function getSqlList($sport=null){
+        $sql = $this->getAdapter()->select()
+                ->from(array('e'=>'event'),array( 'ide'=>'id', 'event'=>'name','dt'))
+                ->join(array('l'=>'league'), 'l.id=e.id_league',array('idl'=>'id','league'=>'name', 'show_icon'))
+                ->join(array('s'=>'sport'), 's.id=l.id_sport',array('ids'=>'id','sport'=>'name'))
+                ->order('e.dt ASC')
             ;
+        
+        if(!is_null($sport)){
+            $sql->where('s.slug=?',$sport);
+        }
+        
+        return $sql;
     }
     
-    public function listFullNames(){
-        $sql = $this->getSqlList();
+    public function listFullNames($sport=null) {
+        $sql = $this->getSqlList($sport);
         return $this->getAdapter()->query($sql);
     }
     

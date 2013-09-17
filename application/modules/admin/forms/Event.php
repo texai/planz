@@ -11,9 +11,14 @@ class Admin_Form_Event extends Zend_Form {
         $e->addMultiOptions($this->_getLeaguesForCbo());
         $this->addElement($e);
         
-        $e = new Zend_Form_Element_Text('name');
-        $e->addValidator(new Zend_Validate_StringLength(array('min'=>2)));
+//        $e = new Zend_Form_Element_Text('name');
+//        $e->addValidator(new Zend_Validate_StringLength(array('min'=>2)));
+//        $e->setRequired();
+//        $e->setLabel('Name');
+//        $this->addElement($e);
+        $e = new Zend_Form_Element_Textarea('name');
         $e->setRequired();
+        $e->setAttrib('rows', 6);
         $e->setLabel('Name');
         $this->addElement($e);
         

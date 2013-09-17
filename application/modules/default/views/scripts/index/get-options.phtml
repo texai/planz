@@ -1,0 +1,8 @@
+<? if(count($this->sources)): ?>
+    <? foreach($this->sources as $i => $s): ?>
+        <a href="<?=$this->url(array('module'=>'default','controller'=>'index','action'=>'view-source','sid'=>$s['id']),'default',true)?>">Link <?=($i+1)?></a>
+    <? endforeach; ?>
+<? else: ?>
+    <a href="<?=$this->url(array('module'=>'default','controller'=>'index','action'=>'view-source','sid'=>'-1'),'default',true)?>">Link 1 (-)</a>
+<? endif; ?>
+

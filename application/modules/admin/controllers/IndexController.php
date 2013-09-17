@@ -37,7 +37,7 @@ class Admin_IndexController extends App_Controller_Action_Admin
         
         $this->view->form = $form;
     }
-
+    
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();

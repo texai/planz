@@ -7,6 +7,7 @@
                     <?foreach($this->sports as $sport):?>
                         <li<?=($this->selectedSport==$sport->slug)?' class="active"':''?>><a href="<?=$this->url(array('sport'=>$sport->slug),'home-sport',true)?>"><?=$sport->name?></a></li>
                     <?endforeach;?>
+                    <li><a href="<?=$this->url(array('sport'=>'others'),'home-sport',true)?>">Others</a></li>
                 </ul>
             </div>
         </div>
