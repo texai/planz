@@ -11,12 +11,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     
     public function _initConfig() {
         $config = new Zend_Config($this->getOptions(), true);
-//        $inifiles = array('app', 'cache', 'private', 'security');
-//        foreach ($inifiles as $file) {
-//            $inifile = APPLICATION_PATH . "/configs/$file.ini";
-//            if (is_readable($inifile))
-//                $config->merge(new Zend_Config_Ini($inifile));
-//        }
+        $inifiles = array('private');
+        foreach ($inifiles as $file) {
+            $inifile = APPLICATION_PATH . "/configs/$file.ini";
+            if (is_readable($inifile))
+                $config->merge(new Zend_Config_Ini($inifile));
+        }
         $this->setOptions($config->toArray());
         Zend_Registry::set('config', $config);
         $this->config = $config;
