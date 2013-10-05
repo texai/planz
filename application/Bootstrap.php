@@ -45,6 +45,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->headScript()->appendFile($view->s('/js/jquery-1.8.3.min.js'));
         $view->headScript()->appendFile($view->s('/js/bootstrap.min.js'));
         $view->headScript()->appendFile($view->s('/js/bootstrap-datetimepicker.min.js'));
+        $view->headScript()->appendFile($view->s('/js/bootstrap-dropdown.js'));
+        $view->headScript()->appendFile($view->s('/js/bootstrap-collapse.js'));
         $view->headScript()->appendFile($view->s('/js/global.js'));
         
     }

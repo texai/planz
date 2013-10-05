@@ -3,11 +3,10 @@
         <div class="navbar-inner">
             <div class="container">
                 <ul class="nav">
-                    <li<?=($this->selectedSport=='home')?' class="active"':''?>><a href="<?=$this->url(array(),'home',true)?>">Home</a></li>
-                    <?foreach($this->sports as $sport):?>
-                        <li<?=($this->selectedSport==$sport->slug)?' class="active"':''?>><a href="<?=$this->url(array('sport'=>$sport->slug),'home-sport',true)?>"><?=$sport->name?></a></li>
-                    <?endforeach;?>
-                    <li><a href="<?=$this->url(array('sport'=>'others'),'home-sport',true)?>">Others</a></li>
+                    <? foreach ($this->sports as $sport): ?>
+                        <li<?=($this->selectedSport == $sport->slug) ? ' class="active"' : '' ?>><a href="<?= $this->url(array('sport' => $sport->slug), 'home-sport', true) ?>"><?= $sport->name ?></a></li>
+                    <? endforeach; ?>
+                    <li<?=($this->selectedSport == 'others') ? ' class="active"' : '' ?>><a href="<?= $this->url(array('sport' => 'others'), 'home-sport', true) ?>">Others</a></li>          
                 </ul>
             </div>
         </div>

@@ -22,15 +22,21 @@ class Application_Model_Event extends Zend_Db_Table_Abstract {
     }
     
     private function getSqlList($sport=null){
+        
         $sql = $this->getAdapter()->select()
                 ->from(array('e'=>'event'),array( 'ide'=>'id', 'event'=>'name','dt'))
                 ->join(array('l'=>'league'), 'l.id=e.id_league',array('idl'=>'id','league'=>'name', 'show_icon'))
                 ->join(array('s'=>'sport'), 's.id=l.id_sport',array('ids'=>'id','sport'=>'name'))
+                ->where(new Zend_Db_Expr('dt - INTERVAL 6 HOUR >= now()'))
                 ->order('e.dt ASC')
             ;
         
         if(!is_null($sport)){
-            $sql->where('s.slug=?',$sport);
+            if($sport== 'others'){
+                $sql->where('s.in_home=0');
+            }else{
+                $sql->where('s.slug=?',$sport);
+            }
         }
         
         return $sql;

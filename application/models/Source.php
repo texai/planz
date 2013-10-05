@@ -14,7 +14,7 @@ class Application_Model_Source extends Zend_Db_Table_Abstract {
     }
     
     public function getByEid($eid){
-        return $this->getAdapter()->fetchAll($this->select()->from('source', array('id','code'))->where('id_event=?', $eid)->order('order ASC'));
+        return $this->getAdapter()->fetchAll($this->select()->from('source', array('id','code','order'))->where('id_event=?', $eid)->order('order ASC'));
     }
     
     private function getNextOrderByEid($eid){

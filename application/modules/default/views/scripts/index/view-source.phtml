@@ -1,1 +1,5 @@
-<?=$this->source['code']?>
+<? if($this->source=='0'): ?>
+    <img src="/static/img/blank.jpg" />
+<? else: ?>
+    <?=$this->source['code']?>
+<? endif; ?>

@@ -17,8 +17,9 @@ class Application_Model_ServiceEvent {
         $mLeague = new Application_Model_League();
         $ret = $sports = array();
         foreach($mSport->fetchAll() as $i){
-            $ret[$i->name] = array();
-            $sports[$i->id] = $i->name;
+            $sportName = $i->name.' '.($i->in_home?'+':'-');
+            $ret[$sportName] = array();
+            $sports[$i->id] = $sportName;
         }
         foreach($mLeague->fetchAll() as $i){
             $ret[$sports[$i->id_sport]][$i->id] = $i->name;
