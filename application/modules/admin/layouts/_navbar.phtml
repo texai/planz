@@ -11,6 +11,8 @@
                 <p class="navbar-text pull-right">
                     Logged in as <a href="<?=$this->url(array(),'admin')?>" class="navbar-link"><?=$this->authData['user']?></a>
                 </p>
+                <p class="navbar-text pull-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p class="navbar-text pull-right">Date: <?=date('Y-m-d H:i:s')?> </p>
                 <ul class="nav">
                     <li class="active"><a href="<?=$this->url(array(),'admin')?>">Home</a></li>
                     <li><a href="<?=$this->url(array(),'logout',true)?>">Logout</a></li>
