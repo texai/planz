@@ -13,7 +13,7 @@ class Admin_EventController extends App_Controller_Action_Admin
     public function init() {
         parent::init();
         $this->mEvent = new Application_Model_Event();
-        $this->indexUrl = $this->view->url(array('module'=>'admin','controller'=>'event','action'=>'index'));
+        $this->indexUrl = $this->view->url(array('module'=>'admin','controller'=>'event','action'=>'index'),'default',true);
     }
     
     public function indexAction()
@@ -46,6 +46,12 @@ class Admin_EventController extends App_Controller_Action_Admin
         $this->view->eid = $id;
         $this->view->form = $form;
         
+    }
+    
+    public function deleteAction(){
+        $id = $this->_getParam('id');
+        $this->mEvent->borrar($id);
+        $this->_redirect($this->indexUrl);
     }
 
     public function newAction()

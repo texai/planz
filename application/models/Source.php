@@ -13,6 +13,10 @@ class Application_Model_Source extends Zend_Db_Table_Abstract {
         $this->insert($row);
     }
     
+    public function borrarPorEventoId($eid){
+        $this->delete(array('id_event=?'=>$eid));
+    }
+    
     public function getByEid($eid){
         return $this->getAdapter()->fetchAll($this->select()->from('source', array('id','code','order'))->where('id_event=?', $eid)->order('order ASC'));
     }

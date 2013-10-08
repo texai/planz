@@ -38,15 +38,15 @@
         <tbody>
             <? foreach ($this->sources as $row): ?>
                 <tr>
-                    <td> (<?= $this->escape($row['id']) ?>) <?= $this->escape($row['code']) ?>   { <?= $this->escape($row['order']) ?></td>
+                    <td> (<?= $this->escape($row['id']) ?>) O:<?=$this->escape($row['order']) ?> - <?= $this->escape($row['code']) ?></td>
                     <td>
                         <? $base = array('module' => 'admin', 'controller' => 'event', 'id' => $this->eid, 'sid' => $row['id'], 'action' => 'view'); ?>
                         <? $url = $this->url($base + array('op'=>'del-source')); ?>
                         <a onclick="return confirm('Are you sure?');" class="btn btn-danger btn-mini" href="<?= $url ?>"><i class="icon-trash icon-white"></i></a>
                         <? $url = $this->url($base + array('op'=>'up-source')); ?>
-                        <a class="btn btn-warning btn-mini" href="<?= $url ?>"><i class="icon-arrow-up icon-white"></i></a>
+                        <!--a class="btn btn-warning btn-mini" href="<?= $url ?>"><i class="icon-arrow-up icon-white"></i></a>
                         <? $url = $this->url($base + array('op'=>'down-source')); ?>
-                        <a class="btn btn-warning btn-mini" href="<?= $url ?>"><i class="icon-arrow-down icon-white"></i></a>
+                        <a class="btn btn-warning btn-mini" href="<?= $url ?>"><i class="icon-arrow-down icon-white"></i></a-->
                     </td>
                 </tr>
             <? endforeach; ?>

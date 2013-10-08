@@ -5,6 +5,7 @@ class Admin_IndexController extends App_Controller_Action_Admin
 
     public function indexAction()
     {
+        $this->_redirect($this->view->url(array('module'=>'admin','controller'=>'event','action'=>'index'),'default',true));
         $mSport = new Application_Model_Sport();
         $this->view->sports = $mSport->fetchAll();
     }
