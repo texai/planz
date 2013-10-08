@@ -7,7 +7,7 @@ class Default_IndexController extends App_Controller_Action_Default
     {
         $mSport = new Application_Model_Sport();
         $mEvent = new Application_Model_Event();
-        $this->view->selectedSport = $selectedSport = $this->_getParam('sport', 'soccer');
+        $this->view->selectedSport = $selectedSport = $this->_getParam('sport', 'futbol');
         $this->view->sports = $mSport->fetchAllHomePage();
         $events = $mEvent->listFullNames($selectedSport);
         $events = $this->offsetDates($events, 2);
