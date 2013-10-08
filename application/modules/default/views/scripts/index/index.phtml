@@ -17,7 +17,7 @@
                 <tr>
                     <td>
                         <span class="trigger_event" data-ide="<?= $item['ide'] ?>" data-url="<?=$this->url(array('module'=>'default','controller'=>'index','ide'=>'__IDE__','action'=>'get-options'),'default',true)?>">
-                            <img src="/static/img/icons/<?=($item['show_icon'])?('league/'.$item['idl']):('sport/'.$item['ids'])?>.png" />
+                            <img width="20" src="/static/img/icons/<?=($item['show_icon'])?('league/'.$item['idl']):('sport/'.$item['ids'])?>.png" />
                             <? $d = new DateTime($item['dt']); echo $d->format('H:i'); ?>
                             <?= $item['event'] ?>
                         </span>
