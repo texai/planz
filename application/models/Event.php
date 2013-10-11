@@ -34,7 +34,7 @@ class Application_Model_Event extends Zend_Db_Table_Abstract {
                 ->join(array('l'=>'league'), 'l.id=e.id_league',array('idl'=>'id','league'=>'name', 'show_icon'))
                 ->join(array('s'=>'sport'), 's.id=l.id_sport',array('ids'=>'id','sport'=>'name'))
                 //->joinLeft(array('so'=>'source'), 'so.id_event=e.id',array('n'=>new Zend_Db_Expr('COUNT(so.id)')))->group('so.id_event')
-                ->where(new Zend_Db_Expr('dt + INTERVAL 3 HOUR >= now()'))
+                //->where(new Zend_Db_Expr('dt + INTERVAL 3 HOUR >= now()'))
                 ->order('e.dt ASC')
             ;
 //        echo $sql->assemble();exit;
