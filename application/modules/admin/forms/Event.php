@@ -46,7 +46,7 @@ class Admin_Form_Event extends Zend_Form {
         
         $e = new Zend_Form_Element_Select('timezone');
         $e->addMultiOptions($this->_getTimeZonesFromCsv());
-        $e->setValue(32);
+        $e->setValue(187); //32
         $e->setLabel('Time Zone');
         $this->addElement($e);
         
