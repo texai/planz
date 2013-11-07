@@ -3,7 +3,7 @@ INSERT INTO sport (id, name, slug, in_home, duration) VALUES (2,'BASKETBALL','ba
 INSERT INTO sport (id, name, slug, in_home, duration) VALUES (3,'TENNIS','tennis',1,240);
 INSERT INTO sport (id, name, slug, in_home, duration) VALUES (4,'ICE HOCKEY','ice-hockey',1,120);
 INSERT INTO sport (id, name, slug, in_home, duration) VALUES (5,'RUGBY','rugby',1,120);
-INSERT INTO sport (id, name, slug, in_home, duration) VALUES (6,'AM. FOOTBALL','am.-football',1,120);
+INSERT INTO sport (id, name, slug, in_home, duration) VALUES (6,'AM. FOOTBALL','am-football',1,120);
 INSERT INTO sport (id, name, slug, in_home, duration) VALUES (7,'CONTACT','contact',1,60);
 INSERT INTO sport (id, name, slug, in_home, duration) VALUES (8,'MOTOSPORT','motosport',1,60);
 INSERT INTO sport (id, name, slug, in_home, duration) VALUES (9,'GOLF','golf',0,60);
